@@ -1,0 +1,1 @@
+print("hello","world", 768," " ,sep="-", end="jkjk")
