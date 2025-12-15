@@ -50,7 +50,7 @@ public:
         std::cout << "Copied new data '" << *strPtr << "'.\n";
 
         // 4. Return this object
-        return *this;
+        return *this;  
     }
 };
 
