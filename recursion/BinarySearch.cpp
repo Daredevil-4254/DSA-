@@ -1,24 +1,28 @@
 #include<iostream>
+#include<vector>
 using namespace std;
 
-int binarySearch(vector<int>&arr,int s, int e,int key){
-    if(s>e)return -1;
-    int mid=s+(e-s)/2;
-    
-    if(arr[mid]==key) return mid;
-    else if (arr[mid]>key){
-         return binarySearch(arr,s,mid-1,key);
-    }else {
-       return binarySearch(arr, mid+1,e, key);
+class solution{
+  public:
+    int bsHealper(vector<int>&arr, int low , int high , int target){
+      // Base condition for recursion instead of a while loop
+      if(low<=high){
+        int mid=low+(high-low)/2; // Corrected mid formula
+        if(arr[mid]==target){
+          return mid;
+        }
+        else if(arr[mid]>target){
+          return bsHealper(arr,low,mid-1,target); 
+        }
+        else{
+          return bsHealper(arr,mid+1,high,target);
+        }
+      }
+      return -1; 
     }
-  return -1;   
-}
-
-
-int main(){
-    vector<int>arr={1,3,55,77,89};
-
-    int ans=binarySearch(arr, 0, 4,0);
-    cout<<"The key is at index : "<<ans<<endl;
-
-}
+    int binarySearch(vector<int>&arr,int target){
+      int n =arr.size();
+  
+      return bsHealper(arr,0,n-1,target);
+    }
+};
