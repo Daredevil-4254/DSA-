@@ -24,5 +24,5 @@ int main() {
          << " times." // to acess the index we use "character -'a'"
          << endl;
   } // if using hashh[256] ,we need not to write -'a '  term .
-} // if the question dosent speak about the exclusivity of characters like all
+} // if the question dosent speak about the exclusiveity of characters like all
   // small case or mixed then we need to take hashh[256]
