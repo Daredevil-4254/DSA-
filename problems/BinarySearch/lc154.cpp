@@ -44,34 +44,23 @@ public:
         int n = nums.size();
         int l = 0;
         int r = n - 1;
-        int resultIdx = 0;
         while (l < r)
         {
-            // duplicate skip
-            while (l < r && nums[l] == nums[l + 1])
-            {
-                l++;
-            }
-            while (r > l && nums[r] == nums[r - 1])
-            {
-                r--;
-            }
             int mid = l + (r - l) / 2;
-            if (nums[mid] < nums[resultIdx])
-            {
-                resultIdx = mid;
-            }
-            if (nums[mid] > nums[r])
+            if (nums[mid] > nums[r]) // Minimum must be in the right half
             {
                 l = mid + 1;
             }
-            else
+            else if (nums[mid] < nums[r]) // Minimum is at mid or in the left half
             {
                 r = mid;
             }
+            else // nums[mid] == nums[r], we don't know which half, but we can safely discard r
+            {
+                r--;
+            }
         }
-        return nums[resultIdx];
-    
+        return nums[l];
     }
 };
 
