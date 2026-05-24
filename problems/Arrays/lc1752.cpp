@@ -54,6 +54,7 @@ public:
             {
                 count++;
                 i++;
+                /comment\
             }
         }
        return count<=1;
