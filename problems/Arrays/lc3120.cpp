@@ -46,22 +46,34 @@ word consists of only lowercase and uppercase English letters.
 
 #include <iostream>
 #include <string>
-using namespace std;
 
-class soution
-{
+
+class Solution {
 public:
-    int numberOfSpecialChars(string word)
-    {
-        int n = word.size();
-        unordered_map<char, int> mp;
-        for (int i = 0; i < word.size(); i++)
-        {
-            mp[word[i]]++;
+    int numberOfSpecialChars(std::string word) {
+        // Step 1: Initialize two vectors of size 26 with false (0)
+        std::vector<bool> lower_vector(26, false);
+        std::vector<bool> upper_vector(26, false);
+        
+        // Step 2 & 3: Scan the string and mark presence
+        for (char c : word) {
+            if (c >= 'a' && c <= 'z') {
+                int index = c - 'a'; // Maps 'a'->0, 'b'->1, ..., 'z'->25
+                lower_vector[index] = true;
+            } else if (c >= 'A' && c <= 'Z') {
+                int index = c - 'A'; // Maps 'A'->0, 'B'->1, ..., 'Z'->25
+                upper_vector[index] = true;
+            }
         }
-        for (char c : mp)
-        {
-            
+        
+        // Step 4: Count the matches where both are true
+        int special_count = 0;
+        for (int i = 0; i < 26; i++) {
+            if (lower_vector[i] && upper_vector[i]) {
+                special_count++;
+            }
         }
+        
+        return special_count;
     }
 };
