@@ -46,6 +46,7 @@ word consists of only lowercase and uppercase English letters.
 
 #include <iostream>
 #include <string>
+using namespace std;
 
 
 class Solution {
@@ -77,3 +78,12 @@ public:
         return special_count;
     }
 };
+int main (){
+    string word="aaAzZbcMBC";
+    Solution s;
+
+    int ans = s.numberOfSpecialChars(word);
+    cout<<"No. of special char. are :"<< ans<<endl;
+
+    return 0;
+    }
