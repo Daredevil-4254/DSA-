@@ -89,11 +89,12 @@ public:
     }
 };
 
-int main(){ 
-    vector<int>costs={1,6,3,1,2,5};
-    int coins=20;
+int main()
+{
+    vector<int> costs = {1, 6, 3, 1, 2, 5};
+    int coins = 20;
     Solution sol;
-    
-    int ans=sol.maxIceCream(costs,coins);
-    cout<<"Icecream Bought :"<<ans<<endl;
+
+    int ans = sol.maxIceCream(costs, coins);
+    cout << "Icecream Bought :" << ans << endl;
 }
